@@ -43,8 +43,8 @@ function Contact(firstName, lastName, phoneNumber, email, address) {
   this.lastName = lastName,
   this.phoneNumber = phoneNumber,
   this.email = email,
-  this.workAddress = workAddress,
-  this.homeAddress = homeAddress
+  this.address = address
+
 }
 
 Contact.prototype.fullName = function() {
@@ -73,7 +73,7 @@ function showContact(contactId) {
   $(".address").html(contact.address);
   var buttons = $("#buttons");
   buttons.empty();
-  buttons.append("<button class='deleteButton' id=" + contact.id + ">Delete</button>");
+  buttons.append("<button class=' btn btn-danger btn-sm deleteButton' id=" + contact.id + ">Delete</button>");
 }
 
 function attachContactListeners() {
@@ -99,6 +99,8 @@ $(document).ready(function() {
     $("input#new-first-name").val("");
     $("input#new-last-name").val("");
     $("input#new-phone-number").val("");
+    $("input#new-email").val("");
+    $("input#new-address").val("");
     var newContact = new Contact(inputtedFirstName, inputtedLastName, inputtedPhoneNumber, inputtedEmail, inputtedAddress);
     addressBook.addContact(newContact);
     displayContactDetails(addressBook);
